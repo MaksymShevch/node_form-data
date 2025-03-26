@@ -89,7 +89,7 @@ function createServer() {
             return res.end('Something went wrong. Please try again later.');
           }
 
-          res.writeHead(200, 'OK', { 'content-type': 'text/html' });
+          res.writeHead(200, 'OK', { 'content-type': 'application/json' });
 
           res.end(responseData);
         });

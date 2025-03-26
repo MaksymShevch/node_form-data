@@ -11,7 +11,7 @@ const htmlForm = `
   <body>
     <h1>Add expense</h1>
     <form action="/add-expense" method="POST">
-      <label for="date">Select a datee: </label>
+      <label for="date">Select a date: </label>
       <input id="date" name="date" type="date" required><br><br>
       <label for="title">Select a title: </label>
       <input id="title" name="title" type="text" required><br><br>
@@ -89,7 +89,7 @@ function createServer() {
             return res.end('Something went wrong. Please try again later.');
           }
 
-          res.writeHead(200, 'OK', { 'content-type': 'application/json' });
+          res.writeHead(200, 'OK', { 'content-type': 'text/html' });
 
           res.end(responseData);
         });

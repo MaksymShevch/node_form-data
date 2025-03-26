@@ -11,7 +11,7 @@ const htmlForm = `
   <body>
     <h1>Add expense</h1>
     <form action="/add-expense" method="POST">
-      <label for="date">Select a date: </label>
+      <label for="date">Select a datee: </label>
       <input id="date" name="date" type="date" required><br><br>
       <label for="title">Select a title: </label>
       <input id="title" name="title" type="text" required><br><br>

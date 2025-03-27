@@ -43,14 +43,14 @@ function getData(text, contentType) {
 function createServer() {
   return http.createServer((req, res) => {
     if (req.url === '/') {
-      res.writeHead(200, 'OK', { 'content-type': 'text/html' });
+      res.writeHead(200, { 'content-type': 'text/html' });
 
       return res.end(htmlForm);
     }
 
     if (['/add-expense', '/submit-expense'].includes(req.url)) {
       if (req.method !== 'POST') {
-        res.writeHead(400, 'Bad Request', { 'content-type': 'text/html' });
+        res.writeHead(400, { 'content-type': 'text/html' });
 
         return res.end(`${req.method} not allowed for this path`);
       }
@@ -71,7 +71,7 @@ function createServer() {
           !keys.includes('title') ||
           !keys.includes('amount')
         ) {
-          res.writeHead(400, 'Bad Request', { 'content-type': 'text/plain' });
+          res.writeHead(400, { 'content-type': 'text/plain' });
 
           return res.end(
             'The request must include exactly 3 keys: date, title, and amount.',
@@ -89,7 +89,7 @@ function createServer() {
             return res.end('Something went wrong. Please try again later.');
           }
 
-          res.writeHead(200, 'OK', { 'content-type': 'application/json' });
+          res.writeHead(200, { 'content-type': 'application/json' });
 
           res.end(responseData);
         });
@@ -98,7 +98,7 @@ function createServer() {
       return;
     }
 
-    res.writeHead(404, 'Not Found', { 'content-type': 'text/plain' });
+    res.writeHead(404, { 'content-type': 'text/plain' });
     res.end('Not Found');
   });
 }
